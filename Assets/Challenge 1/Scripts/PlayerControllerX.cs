@@ -15,7 +15,7 @@ public class PlayerControllerX : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // get the user's vertical input
         verticalInput = Input.GetAxis("Vertical");
@@ -24,6 +24,6 @@ public class PlayerControllerX : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
         // tilt the plane up/down based on up/down arrow keys
-        transform.Rotate(Vector3.up * verticalInput * Time.deltaTime);
+        transform.Rotate(Vector3.left, rotationSpeed * verticalInput * Time.deltaTime);
     }
 }
